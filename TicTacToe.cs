@@ -17,10 +17,6 @@ namespace tictactoe
 
 			public int turnCount = 1;
 
-			public bool isPlaying = true;
-
-			public string[] winningCombos = {"0 1 2", "3 4 5", "6 7 8", "0 3 6", "1 4 7", "2 5 8", "0 4 8", "2 4 6"};
-			public string combo;
 
 			public TicTacToe(){
 
@@ -55,27 +51,27 @@ namespace tictactoe
 				string input = Console.ReadLine();
 				int move = isValidMove(input);
 				bool taken = positionTaken(move);
-				//findWinningCombo();
-				System.Console.WriteLine(turnCount);
+				string winnerToken = getWinner();
+
 				if (taken){
 					System.Console.WriteLine("Invalid Move!");
 					takeTurn();
+
 				} else {
-					// update board
-					//Console.Clear();
+					Console.Clear();
 					displayBoard();
 					turnCount++;
-					//isWinner();
-					// check if board is full/ winner 
-					if(!isFull()){
-						// check for winner 
-						takeTurn();
 
-					} else {
+					if(!isFull() && winnerToken == null){
+						takeTurn();
 						
-						System.Console.WriteLine("GAME END");
+					} else if(isFull()) {
+						
+						System.Console.WriteLine("GAME END - (TIED)");
+					} else if(winnerToken != null){
+						System.Console.WriteLine("WINNER WINNER {0}", winnerToken);
 					}
-					// check for a winner after a successful move
+
 				}
 			}
 
@@ -129,14 +125,35 @@ namespace tictactoe
 					return false;
 				}
 			}
-
-			// public void findWinningCombo(){
-			// 	foreach(string row in board){
-			// 		System.Console.WriteLine(row);
-			// 	};
-			// }
-
-		
+			public string getWinner(){
+				//horizontal
+				if(board[0,0].Equals(board[0,1]) && board[0,0].Equals(board[0,2])){
+					return board[0,0];
+				} else if(board[1,0].Equals(board[1,1]) && board[1,0].Equals(board[1,2])){
+					return board[1,0];
+				} else if(board[2,0].Equals(board[2,1]) && board[2,0].Equals(board[2,2])){
+					return board[2,0];
+				}
+				// diagonal 
+				else if(board[0,0].Equals(board[1,1]) && board[0,0].Equals(board[2,2])){
+					return board[0,0];
+				}
+				else if(board[0,2].Equals(board[1,1]) && board[0,2].Equals(board[2,0])){
+					return board[0,2];
+				}
+				// vertical
+				else if(board[0,0].Equals(board[1,0]) && board[0,0].Equals(board[2,0])){
+					return board[0,0];
+				}
+				else if(board[0,1].Equals(board[1,1]) && board[0,1].Equals(board[2,1])){
+					return board[0,1];
+				}
+				else if(board[0,2].Equals(board[1,2]) && board[0,2].Equals(board[2,2])){
+					return board[0,2];
+				} else {
+					return null;
+				}
+			}
 	
 	} //</classEnd>
 }
