@@ -3,6 +3,18 @@ using System;
 namespace tictactoe
 {
     public class TicTacToe {
+
+			public string[,] initBoard = {
+				{
+					"1", "2", "3"
+				},
+				{
+					"4", "5", "6"
+				},
+				{
+					"7", "8", "9"
+				}
+			};
       public string[,] board = {
 				{
 					"1", "2", "3"
@@ -70,6 +82,9 @@ namespace tictactoe
 						System.Console.WriteLine("GAME END - (TIED)");
 					} else if(winnerToken != null){
 						System.Console.WriteLine("WINNER WINNER {0}", winnerToken);
+						System.Console.WriteLine("Please press any key to restart");
+						Console.ReadLine();
+						resetGame();
 					}
 
 				}
@@ -153,6 +168,12 @@ namespace tictactoe
 				} else {
 					return null;
 				}
+			}
+
+			public void resetGame(){
+				board = initBoard;
+				displayBoard();
+				takeTurn();
 			}
 	
 	} //</classEnd>
