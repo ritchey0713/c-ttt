@@ -70,7 +70,7 @@ namespace tictactoe
 					takeTurn();
 
 				} else {
-					Console.Clear();
+					System.Console.Clear();
 					displayBoard();
 					turnCount++;
 
