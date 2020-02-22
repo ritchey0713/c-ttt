@@ -6,7 +6,7 @@ namespace tictactoe
         static void Main(string[] args) {
 					TicTacToe game = new TicTacToe();
 					game.displayBoard();
-					
+					game.takeTurn();
 					
         }
     }
