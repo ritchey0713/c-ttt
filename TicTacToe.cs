@@ -20,11 +20,6 @@ namespace tictactoe
 			public bool isPlaying = true;
 
 			public string[] winningCombos = {"0 1 2", "3 4 5", "6 7 8", "0 3 6", "1 4 7", "2 5 8", "0 4 8", "2 4 6"};
-
-			public string playerXCombo;
-
-			public string playerOCombo;
-
 			public string combo;
 
 			public TicTacToe(){
@@ -54,39 +49,19 @@ namespace tictactoe
 				}
 			}
 
-			// public void takeTurn(){
-			// 	if(getPlayerTurn() == 1){
-			// 		System.Console.WriteLine("Player 1 please pick a space:");
-			// 		string input = Console.ReadLine();
-			// 		int move = isValidMove(input);
-			// 		//System.Console.WriteLine(board.Length);
-			// 		bool x = positionTaken(move);
-			// 		System.Console.WriteLine(x);
-
-			// 		takeTurn();
-			// 	} else {
-			// 		System.Console.WriteLine("Player 2 please pick a space:");
-			// 		Console.ReadLine();
-			// 	}
-			// }
-
 			public void takeTurn(){
 				//check for winner 
-				
 				System.Console.WriteLine("{0} please make a move:", getPlayerTurn());
 				string input = Console.ReadLine();
 				int move = isValidMove(input);
 				bool taken = positionTaken(move);
-				//gameStatus();
-				//System.Console.WriteLine(isFull());
-			
+				//findWinningCombo();
+				System.Console.WriteLine(turnCount);
 				if (taken){
 					System.Console.WriteLine("Invalid Move!");
 					takeTurn();
 				} else {
 					// update board
-					//System.Console.WriteLine("X {0} combo", playerXCombo);
-					//System.Console.WriteLine("O {0} combo", playerOCombo);
 					//Console.Clear();
 					displayBoard();
 					turnCount++;
@@ -118,11 +93,8 @@ namespace tictactoe
 				bool taken = true;
 				for(int row = 0; row < board.GetLength(1); row++){
 					for(int col = 0; col < board.GetLength(1); col++){
-						//System.Console.WriteLine(board[row, col]);
 						if(board[row, col].Equals(position.ToString())){
 							updateBoard(row, col);
-						//	getPlayerCombo(position);
-
 							return taken = false;
 						} 
 					}	
@@ -139,28 +111,30 @@ namespace tictactoe
 			}
 
 			private bool isFull(){
-				bool boardStatus = false;
-				for(int row = 0; row < board.GetLength(1); row++){
-					for(int col = 0; col < board.GetLength(1); col++){
-						if(board[row, col].Equals("X") || board[row, col].Equals("O")){
-							boardStatus = true;
-						} else {
-							boardStatus = false;
-						}
-					}
-				}
-				return boardStatus;
-			}
-			public void getPlayerCombo(int position){
-				if(playerToken() == "X"){
-					playerXCombo += position;
-					// add square to x
+				// bool boardStatus = false;
+				// for(int row = 0; row < board.GetLength(1); row++){
+				// 	for(int col = 0; col < board.GetLength(1); col++){
+				// 		if(board[row, col].Equals("X") || board[row, col].Equals("O")){
+				// 			boardStatus = true;
+				// 		} else {
+				// 			boardStatus = false;
+				// 		}
+				// 	}
+				// }
+				// return boardStatus;
+				// simplified => can only increment turn if valid move, no need to check squares
+				if(turnCount >= 10){
+					return true;
 				} else {
-					playerXCombo += position;
-					//add square to y
+					return false;
 				}
-
 			}
+
+			// public void findWinningCombo(){
+			// 	foreach(string row in board){
+			// 		System.Console.WriteLine(row);
+			// 	};
+			// }
 
 		
 	
