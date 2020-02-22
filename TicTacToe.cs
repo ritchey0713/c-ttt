@@ -19,6 +19,12 @@ namespace tictactoe
 
 			public bool isPlaying = true;
 
+			public string[] winningCombos = {"0 1 2", "3 4 5", "6 7 8", "0 3 6", "1 4 7", "2 5 8", "0 4 8", "2 4 6"};
+
+			public string playerXCombo;
+
+			public string playerOCombo;
+
 			public TicTacToe(){
 
 			}
@@ -78,9 +84,10 @@ namespace tictactoe
 					Console.Clear();
 					displayBoard();
 					turnCount++;
-					
+					//isWinner();
 					// check if board is full/ winner 
 					if(isPlaying){
+						// check for winner 
 						takeTurn();
 
 					} else {
@@ -115,15 +122,20 @@ namespace tictactoe
 				return taken;
 			}
 
+			private string playerToken(){
+				return getPlayerTurn() == "Player 1" ? "X" : "O";
+			}
+
 			private void updateBoard(int row, int col){
-				string token = getPlayerTurn() == "Player 1" ? "X" : "O";
-				board[row, col] = token;
+				board[row, col] = playerToken();
 			}
 
 			private bool gameStatus(){
 				for(int row = 0; row < board.GetLength(1); row++){
 					for(int col = 0; col < board.GetLength(1); col++){
-						if(board[row, col].Equals("X") || board[row, col].Equals("O")){
+						// if(board[row, col].Equals("X") || board[row, col].Equals("O")){
+							if(board[row, col].Equals(playerToken())){
+								//isWinner(row, col);
 							isPlaying = false;
 						} else {
 							isPlaying = true;
@@ -132,6 +144,14 @@ namespace tictactoe
 				}
 				// check for winner 
 				return isPlaying;
+			}
+
+			public string getPlayerCombo(){
+				if(playerToken() == "X"){
+					// add square to x
+				} else {
+					//add square to y
+				}
 			}
 
 		
