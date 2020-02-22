@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/maveryk/Desktop/code/tictactoe/tictactoe.csproj",
+      "projectUniqueName": "/home/maveryk/Desktop/code/c-ttt/tictactoe.csproj",
       "projectName": "tictactoe",
-      "projectPath": "/home/maveryk/Desktop/code/tictactoe/tictactoe.csproj",
+      "projectPath": "/home/maveryk/Desktop/code/c-ttt/tictactoe.csproj",
       "packagesPath": "/home/maveryk/.nuget/packages/",
-      "outputPath": "/home/maveryk/Desktop/code/tictactoe/obj/",
+      "outputPath": "/home/maveryk/Desktop/code/c-ttt/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/maveryk/.nuget/NuGet/NuGet.Config"

@@ -11,11 +11,13 @@ namespace tictactoe
 					"4", "5", "6"
 				},
 				{
-					"7", "X", "9"
+					"7", "8", "9"
 				}
 			};
 
 			public int turnCount = 1;
+
+			public bool isPlaying = true;
 
 			public TicTacToe(){
 
@@ -61,6 +63,8 @@ namespace tictactoe
 			// }
 
 			public void takeTurn(){
+				//check for winner 
+				
 				System.Console.WriteLine("{0} please make a move:", getPlayerTurn());
 				string input = Console.ReadLine();
 				int move = isValidMove(input);
@@ -70,9 +74,19 @@ namespace tictactoe
 					takeTurn();
 				} else {
 					// update board
+					gameStatus();
+					Console.Clear();
 					displayBoard();
 					turnCount++;
-					takeTurn();
+					
+					// check if board is full/ winner 
+					if(isPlaying){
+						takeTurn();
+
+					} else {
+						
+						System.Console.WriteLine("GAME END");
+					}
 					// check for a winner after a successful move
 				}
 			}
@@ -95,7 +109,7 @@ namespace tictactoe
 						if(board[row, col].Equals(position.ToString())){
 							updateBoard(row, col);
 							return taken = false;
-						}
+						} 
 					}	
 				}
 				return taken;
@@ -104,6 +118,20 @@ namespace tictactoe
 			private void updateBoard(int row, int col){
 				string token = getPlayerTurn() == "Player 1" ? "X" : "O";
 				board[row, col] = token;
+			}
+
+			private bool gameStatus(){
+				for(int row = 0; row < board.GetLength(1); row++){
+					for(int col = 0; col < board.GetLength(1); col++){
+						if(board[row, col].Equals("X") || board[row, col].Equals("O")){
+							isPlaying = false;
+						} else {
+							isPlaying = true;
+						} 
+					}
+				}
+				// check for winner 
+				return isPlaying;
 			}
 
 		

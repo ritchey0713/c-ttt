@@ -9,3 +9,14 @@
 /home/maveryk/Desktop/code/tictactoe/obj/Debug/netcoreapp3.1/tictactoe.AssemblyInfo.cs
 /home/maveryk/Desktop/code/tictactoe/obj/Debug/netcoreapp3.1/tictactoe.dll
 /home/maveryk/Desktop/code/tictactoe/obj/Debug/netcoreapp3.1/tictactoe.pdb
+/home/maveryk/Desktop/code/c-ttt/bin/Debug/netcoreapp3.1/tictactoe
+/home/maveryk/Desktop/code/c-ttt/bin/Debug/netcoreapp3.1/tictactoe.deps.json
+/home/maveryk/Desktop/code/c-ttt/bin/Debug/netcoreapp3.1/tictactoe.runtimeconfig.json
+/home/maveryk/Desktop/code/c-ttt/bin/Debug/netcoreapp3.1/tictactoe.runtimeconfig.dev.json
+/home/maveryk/Desktop/code/c-ttt/bin/Debug/netcoreapp3.1/tictactoe.dll
+/home/maveryk/Desktop/code/c-ttt/bin/Debug/netcoreapp3.1/tictactoe.pdb
+/home/maveryk/Desktop/code/c-ttt/obj/Debug/netcoreapp3.1/tictactoe.csprojAssemblyReference.cache
+/home/maveryk/Desktop/code/c-ttt/obj/Debug/netcoreapp3.1/tictactoe.AssemblyInfoInputs.cache
+/home/maveryk/Desktop/code/c-ttt/obj/Debug/netcoreapp3.1/tictactoe.AssemblyInfo.cs
+/home/maveryk/Desktop/code/c-ttt/obj/Debug/netcoreapp3.1/tictactoe.dll
+/home/maveryk/Desktop/code/c-ttt/obj/Debug/netcoreapp3.1/tictactoe.pdb
