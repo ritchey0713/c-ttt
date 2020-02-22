@@ -25,6 +25,8 @@ namespace tictactoe
 
 			public string playerOCombo;
 
+			public string combo;
+
 			public TicTacToe(){
 
 			}
@@ -75,18 +77,22 @@ namespace tictactoe
 				string input = Console.ReadLine();
 				int move = isValidMove(input);
 				bool taken = positionTaken(move);
+				//gameStatus();
+				//System.Console.WriteLine(isFull());
+			
 				if (taken){
 					System.Console.WriteLine("Invalid Move!");
 					takeTurn();
 				} else {
 					// update board
-					gameStatus();
-					Console.Clear();
+					//System.Console.WriteLine("X {0} combo", playerXCombo);
+					//System.Console.WriteLine("O {0} combo", playerOCombo);
+					//Console.Clear();
 					displayBoard();
 					turnCount++;
 					//isWinner();
 					// check if board is full/ winner 
-					if(isPlaying){
+					if(!isFull()){
 						// check for winner 
 						takeTurn();
 
@@ -115,6 +121,8 @@ namespace tictactoe
 						//System.Console.WriteLine(board[row, col]);
 						if(board[row, col].Equals(position.ToString())){
 							updateBoard(row, col);
+						//	getPlayerCombo(position);
+
 							return taken = false;
 						} 
 					}	
@@ -130,28 +138,28 @@ namespace tictactoe
 				board[row, col] = playerToken();
 			}
 
-			private bool gameStatus(){
+			private bool isFull(){
+				bool boardStatus = false;
 				for(int row = 0; row < board.GetLength(1); row++){
 					for(int col = 0; col < board.GetLength(1); col++){
-						// if(board[row, col].Equals("X") || board[row, col].Equals("O")){
-							if(board[row, col].Equals(playerToken())){
-								//isWinner(row, col);
-							isPlaying = false;
+						if(board[row, col].Equals("X") || board[row, col].Equals("O")){
+							boardStatus = true;
 						} else {
-							isPlaying = true;
-						} 
+							boardStatus = false;
+						}
 					}
 				}
-				// check for winner 
-				return isPlaying;
+				return boardStatus;
 			}
-
-			public string getPlayerCombo(){
+			public void getPlayerCombo(int position){
 				if(playerToken() == "X"){
+					playerXCombo += position;
 					// add square to x
 				} else {
+					playerXCombo += position;
 					//add square to y
 				}
+
 			}
 
 		
