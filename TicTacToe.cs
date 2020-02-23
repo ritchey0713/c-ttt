@@ -4,17 +4,8 @@ namespace tictactoe
 {
     public class TicTacToe {
 
-			public string[,] initBoard = {
-				{
-					"1", "2", "3"
-				},
-				{
-					"4", "5", "6"
-				},
-				{
-					"7", "8", "9"
-				}
-			};
+			
+
       public string[,] board = {
 				{
 					"1", "2", "3"
@@ -80,6 +71,9 @@ namespace tictactoe
 					} else if(isFull()) {
 						
 						System.Console.WriteLine("GAME END - (TIED)");
+						System.Console.WriteLine("Please press any key to restart");
+						Console.ReadLine();
+						resetGame();
 					} else if(winnerToken != null){
 						System.Console.WriteLine("WINNER WINNER {0}", winnerToken);
 						System.Console.WriteLine("Please press any key to restart");
@@ -171,7 +165,19 @@ namespace tictactoe
 			}
 
 			public void resetGame(){
+				 string[,] initBoard = {
+					{
+						"1", "2", "3"
+					},
+					{
+						"4", "5", "6"
+					},
+					{
+						"7", "8", "9"
+					}
+				};
 				board = initBoard;
+				turnCount = 1;
 				displayBoard();
 				takeTurn();
 			}
